@@ -36,6 +36,7 @@ public class KafkaMessageProducerImpl implements KafkaMessageProducer {
 		ProducerRecord<String, String> record = new ProducerRecord<String, String>(TOPIC, message);
 		try {
 			stringProducer.send(record).get();
+			log.info("send success");
 		} catch (Exception e) {
 			log.error("kafka send string message error. {}", e.getMessage());
 		}
