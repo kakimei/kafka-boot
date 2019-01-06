@@ -41,7 +41,7 @@ public class KafkaMessageConsumerImpl {
 		new Thread(() -> {
 			try {
 				while (true) {
-					ConsumerRecords<String, String> records = stringConsumer.poll(Duration.ofSeconds(5));
+					ConsumerRecords<String, String> records = stringConsumer.poll(Duration.ofMinutes(1));
 					for (ConsumerRecord consumerRecord : records) {
 						log.debug("topic = {}, partition = {}, offset = {}, customer = {}, country = {}",
 							consumerRecord.topic(),
